@@ -1,0 +1,15 @@
+name: Run Colab Notebook
+
+on:
+  schedule:
+    - cron: "0 */3 * * *"   # 3時間ごとに実行（4時間切れ対策）
+  workflow_dispatch:        # 手動実行もOK
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run notebook on Colab
+        uses: ammgws/run-colab@v1
+        with:
+          notebook-path: "マイドライブ/Colab Notebooks/morineko.ipynb"
